@@ -9,7 +9,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Carubbi.ConsoleApp" Version="1.0.0" />
-		<PackageReference Include="Carubbi.ResilientFlurl" Version="1.1.0" />
+		<PackageReference Include="Carubbi.ResilientFlurl" Version="1.2.0" />
 		<PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
 		<PackageReference Include="Serilog.Enrichers.Environment" Version="3.0.0" />
