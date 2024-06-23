@@ -21,7 +21,8 @@ namespace Demo.ConsoleApp
 
            
             builder.Services.AddLogging(services => services.AddSerilog());
-            builder.Services.AddHttpClients(builder.Configuration);
+            builder.Services.AddResilientHttpClient<ClientA>(configuration);
+            builder.Services.AddResilientHttpClient<ClientB>(configuration);
             builder.Services.AddSingleton<IClientA, ClientA>();
             builder.Services.AddSingleton<IClientB, ClientB>();
             builder.Services.AddSingleton<IDateTimeWrapper, SystemDateTimeWrapper>();

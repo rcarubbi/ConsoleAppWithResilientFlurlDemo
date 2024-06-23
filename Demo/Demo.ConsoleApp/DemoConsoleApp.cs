@@ -12,23 +12,28 @@ public class DemoConsoleApp(Arguments arguments, ILoggerFactory loggerFactory, I
     public async Task<ExitCodes> RunAsync()
     {
         _logger.LogInformation("Running DemoConsoleApp");
-               
-        _logger.LogInformation( "Version: {Version}", arguments.Version);
+
+        _logger.LogInformation("Version: {Version}", arguments.Version);
 
         // log date time now and utc now
         _logger.LogInformation("DateTime.Now: {DateTimeNow}", dateTimeWrapper.Now);
-        _logger.LogInformation( "DateTime.UtcNow: {DateTimeUtcNow}", dateTimeWrapper.UtcNow);
+        _logger.LogInformation("DateTime.UtcNow: {DateTimeUtcNow}", dateTimeWrapper.UtcNow);
 
-        Task<IEnumerable<WeatherForecast>>[] tasks = Enumerable.Range(0, 100).Select(_ => clientA.GetWeaherInfo()).ToArray();
-        var results = await Task.WhenAll(tasks);
-        _logger.LogInformation("{@clientAResponse}", results.SelectMany(_ => _));
-
-        Task<IEnumerable<WeatherForecast>>[] tasksB = Enumerable.Range(0, 100).Select(_ => clientB.GetWeaherInfo()).ToArray();
-        var resultsB = await Task.WhenAll(tasksB);
-        _logger.LogInformation("{@clientAResponse}", resultsB.SelectMany(_ => _));
+        await StartClientRequests(clientA.GetWeaherInfo);
+        await StartClientRequests(clientB.GetWeaherInfo);
 
         _logger.LogInformation("DemoConsoleApp completed successfully");
 
         return ExitCodes.Ok;
+    }
+
+    private async Task StartClientRequests(Func<Task<IEnumerable<WeatherForecast>>> requestHandler)
+    {
+        Task<IEnumerable<WeatherForecast>>[] tasks = Enumerable.Range(0, 100).Select(_ => requestHandler()).ToArray();
+        var results = await Task.WhenAll(tasks);
+        var output = results.Where(i => i != null).SelectMany(_ => _).ToList();
+
+        _logger.LogInformation("client output: {@clientAResponse}", output);
+        _logger.LogInformation("client output count: {count}", output.Count);
     }
 }

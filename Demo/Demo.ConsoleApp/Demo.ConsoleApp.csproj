@@ -9,12 +9,13 @@
 
 	<ItemGroup>
 		<PackageReference Include="Carubbi.ConsoleApp" Version="1.0.0" />
-		<PackageReference Include="Carubbi.ResilientFlurl" Version="1.0.0" />
+		<PackageReference Include="Carubbi.ResilientFlurl" Version="1.1.0" />
 		<PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
 		<PackageReference Include="Serilog.Enrichers.Environment" Version="3.0.0" />
 		<PackageReference Include="Serilog.Enrichers.Process" Version="3.0.0" />
 		<PackageReference Include="Serilog.Enrichers.Thread" Version="4.0.0" />
+		<PackageReference Include="Serilog.Expressions" Version="5.0.0" />
 		<PackageReference Include="Serilog.Extensions.Hosting" Version="8.0.0" />
 		<PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
 		<PackageReference Include="Serilog.Settings.Configuration" Version="8.0.1" />
