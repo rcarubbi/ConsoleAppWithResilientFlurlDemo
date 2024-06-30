@@ -1,0 +1,6 @@
+@Demo.IdentityWebApi_HostAddress = http://localhost:5087
+
+GET {{Demo.IdentityWebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

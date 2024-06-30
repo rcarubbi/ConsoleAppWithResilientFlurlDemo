@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Resilient Http Client Console App": {
+      "commandName": "Project",
+      "commandLineArgs": "--v 1.0",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "development"
+      }
+    }
+  }
+}
