@@ -10,7 +10,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Carubbi.ConsoleApp" Version="1.2.0" />
-		<PackageReference Include="Carubbi.ResilientFlurl" Version="1.6.0" />
+		<PackageReference Include="Carubbi.ResilientFlurl" Version="1.7.0" />
 		<PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
 		<PackageReference Include="Microsoft.IdentityModel.JsonWebTokens" Version="7.6.2" />
